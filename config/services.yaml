@@ -20,5 +20,9 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
+    App\Model\PostModel: ~
+
+    App\Model\PostModelInterface: '@App\Model\PostModel'
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
