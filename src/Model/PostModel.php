@@ -12,6 +12,12 @@ final class PostModel extends Model implements PostModelInterface
         return $response;
     }
 
+    public function getOne($id):object
+    {
+        $response = json_decode($this->curlRequest("posts/$id"));
+        return $response;
+    }
+
     public function save($data):bool
     {
         return 1;

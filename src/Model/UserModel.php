@@ -2,14 +2,15 @@
 
 namespace App\Model;
 
-use App\Model\GetModelInterface;
 use App\Model\Model;
 
 final class UserModel extends Model implements UserModelInterface
 {
-    public function get():string
+    public function getOne($id):object
     {
-        $response = $this->curlRequest('users');
+        
+        $response = json_decode($this->curlRequest("users/$id"));
+            
         return  $response;
     }
 } 

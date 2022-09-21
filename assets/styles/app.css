@@ -1,0 +1,12 @@
+body {
+    background-color: lightgray;
+}
+
+.data-container{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.back-button{
+    text-align: right;
+}

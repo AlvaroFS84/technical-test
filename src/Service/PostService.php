@@ -18,6 +18,11 @@ final class PostService
         return $this->model->get();
     }
 
+    public function getOne($id):object
+    {
+        return $this->model->getOne($id);
+    }
+
     public function save($data):bool
     {
         return  1;

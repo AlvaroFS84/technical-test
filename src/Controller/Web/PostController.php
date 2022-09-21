@@ -2,8 +2,8 @@
 
 namespace App\Controller\Web;
 
-use App\Service\Interface\GetDataServiceInterface;
 use App\Service\PostService;
+use App\Service\UserService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,18 +13,20 @@ class PostController extends AbstractController
     #[Route('/posts', name: 'web_posts')]
     public function posts(PostService $postService): Response
     {
-        //dd($postService->get());
+        $data = $postService->get();  
         return $this->render('web/post/index.html.twig', [
-            'controller_name' => 'PostController',
+            'posts' => $data,
         ]);
     }
 
     #[Route('/post/{id}', name: 'web_post')]
-    public function post(int $id, PostService $postService): Response
+    public function post(int $id, PostService $postService, UserService $userService): Response
     {
-        //dd($postService->get());
-        return $this->render('web/post/index.html.twig', [
-            'controller_name' => 'PostController',
+        $post_data = $postService->getOne($id);
+        $user_data = $userService->getOne($id);
+        return $this->render('web/post/detail.html.twig', [
+            'post' => $post_data,
+            'user' => $user_data
         ]);
     }
 }

@@ -2,11 +2,19 @@
 
 namespace App\Service;
 
+use App\Model\UserModelInterface;
 
 final class UserService
 {
-    public function get():string
+    private $model;
+
+    public function __construct(UserModelInterface $model)
     {
-        return 'ccccc';
+        $this->model = $model;
+    }
+
+    public function getOne($id):object
+    {
+        return $this->model->getOne($id);
     }
 }

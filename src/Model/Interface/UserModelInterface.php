@@ -4,5 +4,5 @@ namespace App\Model;
 
 interface UserModelInterface
 {
-    public function get():string;
+    public function getOne($id):object;
 }
