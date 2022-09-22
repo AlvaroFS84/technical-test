@@ -3,7 +3,8 @@
 namespace App\Controller\Api;
 
 use App\Service\DataValidationService;
-use App\Service\PostService;
+use App\Service\PostGetService;
+use App\Service\PostSaveService;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -15,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ApiController extends AbstractController
 {
     #[Route('/posts', name: 'api_posts')]
-    public function posts(PostService $postService): Response
+    public function posts(PostGetService $postService): Response
     {
         try{
             $response = $postService->get();
@@ -31,7 +32,7 @@ class ApiController extends AbstractController
 
 
     #[Route('/save', name: 'api_save_posts')]
-    public function savePosts(Request $request, PostService $postService, DataValidationService $validator): Response
+    public function savePosts(Request $request, PostSaveService $postService, DataValidationService $validator): Response
     {
         $data = json_decode($request->getContent(), true );
         if($validator->validate($data)){

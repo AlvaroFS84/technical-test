@@ -2,15 +2,15 @@
 
 namespace App\Service;
 
-use App\Model\UserModelInterface;
+use App\Model\GetModelInterface;
 
 final class UserService
 {
     private $model;
 
-    public function __construct(UserModelInterface $model)
+    public function __construct(GetModelInterface $userGetmodel)
     {
-        $this->model = $model;
+        $this->model = $userGetmodel;
     }
 
     public function getOne($id):object

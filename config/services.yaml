@@ -20,11 +20,15 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
-    App\Model\PostModel: ~
-    App\Model\PostModelInterface: '@App\Model\PostModel'
+    App\Model\PostGetModel: ~
+    App\Model\PostSaveModel: ~
+    App\Model\UserGetModel: ~
 
-    App\Model\UserModel: ~
-    App\Model\UserModelInterface: '@App\Model\UserModel'
+
+
+    App\Model\GetModelInterface $getPostmodel: '@App\Model\PostGetModel'
+    App\Model\GetModelInterface $userGetmodel: '@App\Model\UserGetModel'
+    App\Model\SaveModelInterface $postSavemodel: '@App\Model\PostSaveModel'
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

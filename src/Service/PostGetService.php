@@ -2,15 +2,15 @@
 
 namespace App\Service;
 
-use App\Model\PostModelInterface;
+use App\Model\GetModelInterface;
 
-final class PostService
+final class PostGetService
 {
     private $model;
 
-    public function __construct(PostModelInterface $model)
+    public function __construct(GetModelInterface $getPostmodel)
     {
-        $this->model = $model;
+        $this->model = $getPostmodel;
     }
 
     public function get():array
@@ -21,10 +21,5 @@ final class PostService
     public function getOne($id):object
     {
         return $this->model->getOne($id);
-    }
-
-    public function save($data):bool
-    {
-        return  1;
     }
 }

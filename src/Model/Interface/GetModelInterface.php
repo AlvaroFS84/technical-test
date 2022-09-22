@@ -2,7 +2,9 @@
 
 namespace App\Model;
 
-interface UserModelInterface
+interface GetModelInterface
 {
+    public function get():array;
     public function getOne($id):object;
+   
 }
