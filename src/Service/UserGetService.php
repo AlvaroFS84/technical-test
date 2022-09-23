@@ -4,7 +4,7 @@ namespace App\Service;
 
 use App\Model\GetModelInterface;
 
-final class UserService
+final class UserGetService
 {
     private $model;
 
