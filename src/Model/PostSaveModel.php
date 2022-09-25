@@ -6,7 +6,9 @@ use App\Model\Model;
 
 final class PostSaveModel extends Model implements SaveModelInterface
 {
-
+    /**
+     * Save a post in the database, in this case only  a simulation
+     */
     public function save($data):bool
     {
         /**In a real database */

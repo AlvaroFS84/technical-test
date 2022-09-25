@@ -12,12 +12,16 @@ final class PostGetService
     {
         $this->model = $getPostmodel;
     }
-
+    /**
+     * Get all posts
+     */
     public function get():array
     {
         return $this->model->get();
     }
-
+    /**
+     * Get on post by id
+     */
     public function getOne($id):object
     {
         return $this->model->getOne($id);

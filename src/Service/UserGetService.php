@@ -13,6 +13,9 @@ final class UserGetService
         $this->model = $userGetmodel;
     }
 
+    /**
+     * Get one user
+     */
     public function getOne($id):object
     {
         return $this->model->getOne($id);

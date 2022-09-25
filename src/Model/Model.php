@@ -6,7 +6,9 @@ class Model
 {
     const URL = 'https://jsonplaceholder.typicode.com/';
 
-
+    /**
+     * Make a curl request
+     */
     protected function curlRequest(string $url, $isPost = false, $data = null):string
     {
         $ch = curl_init();

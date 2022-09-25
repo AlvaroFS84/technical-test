@@ -12,7 +12,9 @@ final class PostSaveService
     {
         $this->model = $postSavemodel;
     }
-
+    /**
+     * Save a post
+     */
     public function save($data):bool
     {
         return $this->model->save($data);
